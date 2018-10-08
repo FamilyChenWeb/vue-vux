@@ -7,6 +7,7 @@ import App from './App'
 import {
   Flexbox,
   FlexboxItem,
+  Group,
   Divider,
   Grid,
   GridItem,
@@ -14,11 +15,14 @@ import {
   ViewBox,
   XHeader,
   Tabbar,
-  TabbarItem
+  TabbarItem,
+  XInput,
+  XButton
 } from 'vux'
 
 Vue.component('flexbox', Flexbox)
 Vue.component('flexbox-item', FlexboxItem)
+Vue.component('group', Group)
 Vue.component('divider', Divider)
 Vue.component('grid', Grid)
 Vue.component('grid-item', GridItem)
@@ -27,6 +31,8 @@ Vue.component('view-box', ViewBox)
 Vue.component('x-header', XHeader)
 Vue.component('tabbar', Tabbar)
 Vue.component('tabbar-item', TabbarItem)
+Vue.component('x-input', XInput)
+Vue.component('x-button', XButton)
 
 FastClick.attach(document.body)
 
