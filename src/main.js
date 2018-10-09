@@ -4,10 +4,13 @@ import Vue from 'vue'
 import FastClick from 'fastclick'
 import router from './router/index'
 import App from './App'
-import './utils/request'
 import './assets/icon/iconfont.css'
+import { getRequest } from './utils/request'
+import { postRequest } from './utils/request'
+import { deleteRequest } from './utils/request'
+import { putRequest } from './utils/request'
 import {
-  // AjaxPlugin,
+  LoadingPlugin,
   Flexbox,
   FlexboxItem,
   Group,
@@ -26,7 +29,7 @@ import {
   MarqueeItem
 } from 'vux'
 
-// Vue.use(AjaxPlugin)
+Vue.use(LoadingPlugin)
 Vue.component('flexbox', Flexbox)
 Vue.component('flexbox-item', FlexboxItem)
 Vue.component('group', Group)
@@ -47,6 +50,10 @@ Vue.component('marquee-item', MarqueeItem)
 FastClick.attach(document.body)
 
 Vue.config.productionTip = false
+Vue.prototype.getRequest = getRequest;
+Vue.prototype.postRequest = postRequest;
+Vue.prototype.deleteRequest = deleteRequest;
+Vue.prototype.putRequest = putRequest;
 
 /* eslint-disable no-new */
 new Vue({
