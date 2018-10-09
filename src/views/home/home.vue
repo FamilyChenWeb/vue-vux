@@ -1,7 +1,7 @@
 <template>
   <div class="home" style="height: 100%;">
     <!--头部-->
-    <view-box ref="viewBox" body-padding-bottom="50px">
+    <view-box ref="viewBox" body-padding-bottom="54px">
       <div class="home_positioning">
         <!--背景图-->
         <div class="home_background">
@@ -79,33 +79,9 @@
           </div>
           <!--菜单-->
           <grid :cols="3" :show-lr-borders="false" class="home_grid">
-            <grid-item v-for="i in 6" :key="i">
-              <span class="grid-center">{{i}}</span>
-            </grid-item>
-          </grid>
-          <grid :cols="3" :show-lr-borders="false" class="home_grid">
-            <grid-item v-for="i in 6" :key="i">
-              <span class="grid-center">{{i}}</span>
-            </grid-item>
-          </grid>
-          <grid :cols="3" :show-lr-borders="false" class="home_grid">
-            <grid-item v-for="i in 6" :key="i">
-              <span class="grid-center">{{i}}</span>
-            </grid-item>
-          </grid>
-          <grid :cols="3" :show-lr-borders="false" class="home_grid">
-            <grid-item v-for="i in 6" :key="i">
-              <span class="grid-center">{{i}}</span>
-            </grid-item>
-          </grid>
-          <grid :cols="3" :show-lr-borders="false" class="home_grid">
-            <grid-item v-for="i in 6" :key="i">
-              <span class="grid-center">{{i}}</span>
-            </grid-item>
-          </grid>
-          <grid :cols="3" :show-lr-borders="false" class="home_grid">
-            <grid-item v-for="i in 6" :key="i">
-              <span class="grid-center">{{i}}</span>
+            <grid-item v-for="(item, index) in icon" :key="index" class="home_menu">
+              <i :class="item.menuIcon"></i>
+              <p class="grid-center">{{item.menuName}}</p>
             </grid-item>
           </grid>
         </flexbox>
@@ -138,7 +114,45 @@ export default {
   name: 'home',
   data () {
     return {
-      asyncCount: 0
+      asyncCount: 0,
+      icon: [
+        {
+          menuIcon: 'icon icon-yinhangqia1',
+          menuName: '转出'
+        },
+        {
+          menuIcon: 'icon icon-jifen1',
+          menuName: '转入'
+        },
+        {
+          menuIcon: 'icon icon-licai',
+          menuName: '理财'
+        },
+        {
+          menuIcon: 'icon icon-huiyuan',
+          menuName: '会员礼包'
+        },
+        {
+          menuIcon: 'icon icon-dianpu1',
+          menuName: '商城'
+        },
+        {
+          menuIcon: 'icon icon-qian',
+          menuName: '交易市场'
+        },
+        {
+          menuIcon: 'icon icon-zhanghuzhongxin',
+          menuName: '团队'
+        },
+        {
+          menuIcon: 'icon icon-mima1',
+          menuName: '分享'
+        },
+        {
+          menuIcon: 'icon icon-wenti',
+          menuName: '投资建议'
+        }
+      ]
     }
   },
   methods: {
@@ -150,6 +164,7 @@ export default {
     }
   },
   mounted () {
+    console.log(this.icon)
     this.$vux.loading.show({
       text: 'Loading'
     })
@@ -187,6 +202,7 @@ export default {
       position: absolute;
       top: 0;
       left: 0;
+      margin-bottom: 54px;
       img {
         display: block;
         width: 60px;
@@ -275,6 +291,14 @@ export default {
           color: #4084f3;
           i {
             margin-right: 10px;
+          }
+        }
+      }
+      .home_grid {
+        .home_menu {
+          text-align: center;
+          i {
+            font-size: 40px;
           }
         }
       }

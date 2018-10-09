@@ -26,7 +26,8 @@ import {
   XButton,
   Cell,
   Marquee,
-  MarqueeItem
+  MarqueeItem,
+  Box
 } from 'vux'
 
 Vue.use(LoadingPlugin)
@@ -46,6 +47,7 @@ Vue.component('x-button', XButton)
 Vue.component('cell', Cell)
 Vue.component('marquee', Marquee)
 Vue.component('marquee-item', MarqueeItem)
+Vue.component('box', Box)
 
 FastClick.attach(document.body)
 

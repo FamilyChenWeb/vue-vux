@@ -24,15 +24,15 @@
 
 <script>
 export default {
-  name: 'Login'
+  name: "registered"
 }
 </script>
 
-<style scoped lang="less">
+<style scoped>
   .login_logo {
-    img {
-      display: block;
-      margin: 0 auto;
-    }
+  img {
+    display: block;
+    margin: 0 auto;
+  }
   }
 </style>
