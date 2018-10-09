@@ -55,36 +55,23 @@
             <span>报单币</span>
             <span>123</span>
           </grid-item>
-          <grid-item class="home_space_between">
-            <span>报单币</span>
-            <span>123</span>
-          </grid-item>
-          <grid-item class="home_space_between">
-            <span>报单币</span>
-            <span>123</span>
-          </grid-item>
-          <grid-item class="home_space_between">
-            <span>报单币</span>
-            <span>123</span>
-          </grid-item>
-          <grid-item class="home_space_between">
-            <span>报单币</span>
-            <span>123</span>
-          </grid-item>
         </grid>
         <!--公告-->
         <div class="home_announcement">
           <div class="home_border">
-            <i class="icon icon-newxiankuang"></i>
-            <group>
-              <cell title="公告">
-                <marquee>
-                  <marquee-item v-for="i in 5" :key="i" @click.native="onClick(i)">123{{i}}</marquee-item>
-                </marquee>
-              </cell>
-            </group>
+            <i class="icon icon-jinrongtongxun"></i>
+            <marquee>
+              <marquee-item v-for="i in 5" :key="i" @click.native="onClick(i)">内容{{i}}</marquee-item>
+            </marquee>
+            <div style="width: 40px;">更多</div>
           </div>
         </div>
+        <!--菜单-->
+        <grid :cols="3" :show-lr-borders="false" class="home_grid">
+          <grid-item v-for="i in 6" :key="i">
+            <span class="grid-center">{{i}}</span>
+          </grid-item>
+        </grid>
       </flexbox>
     </div>
   </div>
@@ -101,6 +88,9 @@ export default {
   methods: {
     onClick (i) {
       console.log(i)
+      this.$http.post('/api').then(({data}) => {
+        console.log(data)
+      })
     }
   },
   mounted () {
@@ -181,8 +171,14 @@ export default {
         padding: 5px 10px;
         box-sizing: border-box;
         border-radius: 5px;
+        background-color: @box_background;
         .home_border {
+          flex-direction: row;
           background-color: @white_color;
+          display: flex;
+          i {
+            margin-right: 10px;
+          }
         }
       }
     }
