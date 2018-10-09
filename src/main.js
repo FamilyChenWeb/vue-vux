@@ -4,6 +4,7 @@ import Vue from 'vue'
 import FastClick from 'fastclick'
 import router from './router/index'
 import App from './App'
+import './assets/icon/iconfont.css'
 import {
   Flexbox,
   FlexboxItem,
@@ -17,7 +18,10 @@ import {
   Tabbar,
   TabbarItem,
   XInput,
-  XButton
+  XButton,
+  Cell,
+  Marquee,
+  MarqueeItem
 } from 'vux'
 
 Vue.component('flexbox', Flexbox)
@@ -33,6 +37,9 @@ Vue.component('tabbar', Tabbar)
 Vue.component('tabbar-item', TabbarItem)
 Vue.component('x-input', XInput)
 Vue.component('x-button', XButton)
+Vue.component('cell', Cell)
+Vue.component('marquee', Marquee)
+Vue.component('marquee-item', MarqueeItem)
 
 FastClick.attach(document.body)
 
