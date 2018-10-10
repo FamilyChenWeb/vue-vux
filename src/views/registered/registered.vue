@@ -56,10 +56,6 @@ export default {
         margin-right: 10px;
       }
     }
-    .but {
-      background-color: @but;
-      color: #fff;
-    }
     .registered_features {
       text-align: center;
       a {

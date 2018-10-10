@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Cs from '@/components/HelloFromVux'
 import Login from '@/views/login/login'
 import Home from '@/views/home/home'
 import Registered from '@/views/registered/registered'
@@ -30,11 +29,6 @@ export default new Router({
           component: Home
         }
       ]
-    },
-    {
-      path: '/cs',
-      name: 'HelloFromVux',
-      component: Cs
     }
   ]
 })
