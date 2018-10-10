@@ -52,7 +52,7 @@
           <grid :cols="2" :show-lr-borders="false" class="home_grid">
             <grid-item class="home_space_between">
               <span><i class="icon icon-jifen"></i>幸运积分</span>
-              <strong>600</strong>
+              <strong>{{num}}</strong>
             </grid-item>
             <grid-item class="home_space_between">
               <span><i class="icon icon-qiandai_"></i>销售佣金</span>
@@ -74,7 +74,10 @@
               <marquee>
                 <marquee-item v-for="i in 5" :key="i" @click.native="onClick(i)">内容{{i}}</marquee-item>
               </marquee>
-              <div style="width: 40px;">更多</div>
+              <div class="home_announcement" @click="csInput">
+                <!--<router-link to="/announcement">更多</router-link>-->
+                <span>123456</span>
+              </div>
             </div>
           </div>
           <!--菜单-->
@@ -84,6 +87,7 @@
               <p class="grid-center">{{item.menuName}}</p>
             </grid-item>
           </grid>
+          <x-input placeholder="I'm placeholder" :value="value"></x-input>
         </flexbox>
       </div>
       <tabbar slot="bottom">
@@ -109,12 +113,14 @@
 </template>
 
 <script>
-import { reg } from '../../api/api'
+import { login } from '../../api/api'
 export default {
   name: 'home',
   data () {
     return {
       asyncCount: 0,
+      num: '',
+      value: '',
       icon: [
         {
           menuIcon: 'icon icon-yinhangqia1',
@@ -161,9 +167,18 @@ export default {
       this.getRequest(reg).then(({data}) => {
         console.log(data)
       })
+    },
+    csInput () {
+      this.value = '123'
     }
   },
   mounted () {
+    this.num = '8'
+    console.log(this.num)
+    const pamet = {key: '00d91e8e0cca2b76f515926a36db68f5', account: '13594347817', password: '123456'}
+    this.postRequest(login, pamet).then(({data}) => {
+      console.log('data-----', data)
+    })
     console.log(this.icon)
     this.$vux.loading.show({
       text: 'Loading'
@@ -291,6 +306,10 @@ export default {
           color: #4084f3;
           i {
             margin-right: 10px;
+          }
+          .home_announcement {
+            width: 40px;
+            color: @tabbar-text-active-color;
           }
         }
       }

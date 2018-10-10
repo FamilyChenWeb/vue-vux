@@ -52,8 +52,8 @@ Vue.component('box', Box)
 FastClick.attach(document.body)
 
 Vue.config.productionTip = false
-Vue.prototype.getRequest = getRequest;
-Vue.prototype.postRequest = postRequest;
+Vue.prototype.getRequest = getRequest;  //get请求
+Vue.prototype.postRequest = postRequest;  //post请求
 Vue.prototype.deleteRequest = deleteRequest;
 Vue.prototype.putRequest = putRequest;
 

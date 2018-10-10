@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from '@/views/login/login'
 import Home from '@/views/home/home'
 import Registered from '@/views/registered/registered'
+import Announcement from '@/views/home/announcement'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
           component: Home
         }
       ]
-    }
+    },
+    {
+      path: '/announcement',
+      name: 'announcement',
+      component: Announcement
+    },
   ]
 })
